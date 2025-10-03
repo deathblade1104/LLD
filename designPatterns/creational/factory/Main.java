@@ -1,4 +1,6 @@
 
+package designPatterns.creational.factory;
+
 abstract class Vehicle {
   protected VehicleType type;
 
@@ -7,22 +9,21 @@ abstract class Vehicle {
   }
 }
 
-// ✅ Concrete products
 class Car extends Vehicle {
   public Car() {
-    this.type = VehicleType.Car;
+    this.type = VehicleType.CAR;
   }
 }
 
 class Bike extends Vehicle {
   public Bike() {
-    this.type = VehicleType.Bike;
+    this.type = VehicleType.BIKE;
   }
 }
 
 class Truck extends Vehicle {
   public Truck() {
-    this.type = VehicleType.Truck;
+    this.type = VehicleType.TRUCK;
   }
 }
 
