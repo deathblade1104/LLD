@@ -7,7 +7,7 @@ public class Main {
 
   public static List<IShape> cloneShapes(List<IShape> shapes) {
     List<IShape> clones = new ArrayList<>();
-    for (IShape shape : shapes) {
+    for (IShape shape : shapes) { 
       clones.add(shape.clone());
     }
     return clones;
