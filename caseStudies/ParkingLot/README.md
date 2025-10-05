@@ -91,7 +91,12 @@ classDiagram
   class Car
   class Bike
   class Truck
-  enum VehicleType { +getSpaceRequired(): int }
+  class VehicleType {
+    <<enumeration>>
+    +CAR
+    +BIKE
+    +TRUCK
+  }
   class VehicleFactory { +createVehicle(type: VehicleType, license: int): Vehicle }
   class Driver { +getName(): String +getPhoneNumber(): String +getVehicle(): Vehicle }
 
