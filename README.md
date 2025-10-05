@@ -4,6 +4,9 @@ This repository contains comprehensive implementations of software design patter
 
 ## 📚 Repository Structure
 
+### Case Studies
+- **[Parking Lot](caseStudies/ParkingLot/README.md)** — Multi-floor parking system with tickets, waitlist notifications (Observer), pluggable pricing strategy, and UML diagrams
+
 ### Creational Patterns
 - **[Simple Factory](designPatterns/creational/simpleFactory/README.md)** - Centralized object creation
 - **[Factory Method](designPatterns/creational/factory/README.md)** - Delegate creation to subclasses
@@ -58,11 +61,6 @@ Each pattern directory contains:
 - Runnable and self-explanatory
 - Proper package structure
 
-## 📖 Learning Resources
-
-- [Head First Design Patterns (2nd ed.)](https://www.oreilly.com/library/view/head-first-design/9781492077992/)
-- [Refactoring Guru: Design Patterns](https://refactoring.guru/design-patterns)
-- [Effective Java (3rd ed.)](https://www.pearson.com/en-us/subject-catalog/p/effective-java/P200000003457/9780134686097)
 
 ## 🗺️ Roadmap
 
