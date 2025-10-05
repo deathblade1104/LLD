@@ -15,7 +15,7 @@ public class Main {
     store.updateQuantity(5);
 
     store.removeCustomer(customer1);
-
+  
     System.out.println("\nSetting stock to 2.");
     store.updateQuantity(2);
   }
