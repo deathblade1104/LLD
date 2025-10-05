@@ -44,9 +44,21 @@ classDiagram
     +getFirstEmptyPositionInGrid(spaceRequired: int) Optional~ParkingPosition~
     +print() void
   }
-  class ParkingPosition { +floor: int +row: int +column: int }
-  enum SpotState { EMPTY; OCCUPIED_CAR; OCCUPIED_BIKE; OCCUPIED_TRUCK }
-  class ParkingLotRenderer { +print(grid: SpotState[][][]): void }
+  class ParkingPosition {
+    +floor: int
+    +row: int
+    +column: int
+  }
+  class SpotState {
+    <<enumeration>>
+    +EMPTY
+    +OCCUPIED_CAR
+    +OCCUPIED_BIKE
+    +OCCUPIED_TRUCK
+  }
+  class ParkingLotRenderer {
+    +print(grid: SpotState[][][]): void
+  }
 
   %% Manager & Pricing
   class ParkingLotManager {
@@ -59,8 +71,18 @@ classDiagram
     +subscribe(obs: WaitlistObserver): void
     +unsubscribe(obs: WaitlistObserver): void
   }
-  class ParkingInfo { +getPosition(): ParkingPosition +getInTime(): Date }
-  class Ticket { +ticketId: String +licenseNumber: int +vehicleType: VehicleType +position: ParkingPosition +inTime: Date +spotsOccupied: int }
+  class ParkingInfo {
+    +getPosition(): ParkingPosition
+    +getInTime(): Date
+  }
+  class Ticket {
+    +ticketId: String
+    +licenseNumber: int
+    +vehicleType: VehicleType
+    +position: ParkingPosition
+    +inTime: Date
+    +spotsOccupied: int
+  }
   class ChargingStrategy { <<interface>> +calculateCharge(inTime: Date, spots: int) int }
   class CalculateCharges { +calculateCharge(Date, int) int }
 
@@ -74,7 +96,13 @@ classDiagram
   class Driver { +getName(): String +getPhoneNumber(): String +getVehicle(): Vehicle }
 
   %% Waitlist & Observer
-  class Waitlist { +enqueue(d: Driver) +peek(): Driver +pop(): Driver +isEmpty(): boolean +notifyAvailable(d: Driver) }
+  class Waitlist {
+    +enqueue(d: Driver)
+    +peek(): Driver
+    +pop(): Driver
+    +isEmpty(): boolean
+    +notifyAvailable(d: Driver)
+  }
   class WaitlistObserver { <<interface>> +onSpotAvailable(d: Driver) }
 
   ParkingLotManager --> ParkingLot
@@ -101,7 +129,7 @@ sequenceDiagram
   participant Obs as WaitlistObserver
 
   Manager->>WL: enqueue(driver) [when requestPark fails]
-  ... later ...
+  Note over Manager: later
   Manager->>Lot: unParkVehicle(ticket)
   Manager->>WL: peek()
   alt can park
