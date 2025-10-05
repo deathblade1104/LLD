@@ -8,17 +8,73 @@ Comprehensive parking lot simulation with tickets, waitlist notifications (Obser
 - Park → issue ticket; Unpark → compute charges; render current state.
 - If full, add driver+vehicle to a waitlist and notify when a spot becomes available.
 
-## Entities (brief)
-- ParkingLot: Maintains a 3D grid of `SpotState`; finds first fit; marks occupy/release.
-- ParkingPosition: Record for (floor,row,column) start of allocation.
-- SpotState: EMPTY, OCCUPIED_CAR, OCCUPIED_BIKE, OCCUPIED_TRUCK.
-- Vehicle: Abstract; `Car`, `Bike`, `Truck`; `VehicleType` encodes `spaceRequired`.
-- Ticket: Immutable record of a parking session (id, type, position, inTime, spots).
-- ParkingInfo: Immutable internal store of position and in-time.
-- ChargingStrategy: Strategy interface; `CalculateCharges` is a flat-rate per spot per hour.
-- ParkingLotRenderer: Renders the grid (separation of concerns).
-- Driver: Name, phone, and associated Vehicle (1:1 for now).
-- Waitlist/Observer: FIFO of Drivers; `WaitlistObserver` gets notified when a spot is served.
+## Entities (detailed)
+- ParkingLot
+  - Purpose: Owns the parking grid and implements contiguous allocation and release.
+  - Data: `floors`, `rows`, `columns`, `SpotState[][][] grid`, `spotsOccupied`.
+  - Key ops: `getFirstEmptyPositionInGrid(int)`, `markSpaceAsOccupied(ParkingPosition,int,VehicleType)`, `markSpaceAsUnoccupied(ParkingPosition,int)`, `totalFreeSpots()`.
+  - Notes: Uses first-fit search row-by-row; can be extended to best-fit or interval indexing.
+
+- ParkingPosition
+  - Purpose: Value object marking the start cell of an allocated contiguous block.
+  - Data: `floor`, `row`, `column`.
+  - Notes: Allocation size comes from the vehicle type’s space requirement.
+
+- SpotState
+  - Purpose: Encodes occupancy state per cell.
+  - Values: `EMPTY`, `OCCUPIED_CAR`, `OCCUPIED_BIKE`, `OCCUPIED_TRUCK`.
+  - Notes: Extendable for EV/handicapped/reserved.
+
+- Vehicle hierarchy and VehicleType
+  - Purpose: Domain model for parkable entities and their space requirement.
+  - Types: Abstract `Vehicle` with concrete `Car`, `Bike`, `Truck`.
+  - `VehicleType`: Enum carrying `spaceRequired` used for contiguous allocation.
+
+- Ticket
+  - Purpose: Immutable record used by clients to unpark and bill.
+  - Data: `ticketId`, `licenseNumber`, `vehicleType`, `position`, `inTime`, `spotsOccupied`.
+  - Notes: Decouples client actions from internal maps/keys.
+
+- ParkingInfo
+  - Purpose: Internal immutable state stored against active tickets.
+  - Data: `position`, `inTime`.
+  - Notes: Hidden behind `ParkingLotManager`.
+
+- ChargingStrategy / CalculateCharges
+  - Purpose: Pluggable pricing policy.
+  - Current impl: Flat-rate per hour per spot; billing rounds up to the next hour.
+  - Notes: Swap with peak-pricing or membership-based strategies without changing callers.
+
+- ParkingLotRenderer
+  - Purpose: Output/visualization of grid state.
+  - Notes: Keeps I/O separate from the core model.
+
+- Driver
+  - Purpose: Actor attempting to park; 1:1 with a `Vehicle`.
+  - Data: `name`, `phoneNumber`, `vehicle`.
+  - Notes: Used for waitlist and notifications.
+
+- Waitlist and WaitlistObserver
+  - Purpose: Queue of pending drivers and an observer interface for notifications.
+  - Data/ops: `enqueue/peek/pop/isEmpty/notifyAvailable`.
+  - Notes: When `unPark` frees space, manager tries to auto-serve the head of the queue and notifies observers.
+
+## Design Patterns Used
+- Strategy
+  - Where: `ChargingStrategy` (interface) and `CalculateCharges` (concrete policy).
+  - Why: Decouple pricing rules from orchestration; easy to replace/extend.
+
+- Observer
+  - Where: `Waitlist` publishes, `WaitlistObserver`/`DriverWaiter` subscribe.
+  - Why: Notify interested parties (drivers UI/SMS) when a spot becomes available, without tight coupling.
+
+- Factory Method (simple factory)
+  - Where: `VehicleFactory.createVehicle(type, license)`.
+  - Why: Centralize creation and hide concrete class selection from callers.
+
+- Value Object/Record
+  - Where: `Ticket`, `ParkingPosition` (immutable records/value objects).
+  - Why: Safer identity and messaging between layers; avoids accidental mutation.
 
 ## Design Overview
 - API: `parkVehicle(Vehicle) -> Optional<Ticket>`; `unParkVehicle(Ticket) -> int`.
