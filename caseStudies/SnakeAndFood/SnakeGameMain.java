@@ -80,6 +80,6 @@ public class SnakeGameMain {
   }
 
   private static void displayGameState(SnakeGame game) {
-    System.out.println("nCurrent snake length: " + game.snake.size());
+    System.out.println("\nCurrent snake length: " + game.snake.size());
   }
 }
