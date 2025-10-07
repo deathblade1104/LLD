@@ -1,0 +1,106 @@
+=== PARKING LOT SYSTEM DEMO OUTPUT ===
+Generated on: $(date)
+Command: java -cp . caseStudies.ParkingLot.Main
+
+=== Parking vehicles ===
+***** PRINTING PARKING LOT *****
+Floor Number : 0
+OCCUPIED OCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+************************************************
+Floor Number : 1
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+************************************************
+***** PRINTING PARKING LOT *****
+Floor Number : 0
+OCCUPIED OCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED UNOCCUPIED
+************************************************
+Floor Number : 1
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+************************************************
+***** PRINTING PARKING LOT *****
+Floor Number : 0
+OCCUPIED OCCUPIED OCCUPIED UNOCCUPIED UNOCCUPIED
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED UNOCCUPIED
+************************************************
+Floor Number : 1
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+************************************************
+***** PRINTING PARKING LOT *****
+Floor Number : 0
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED OCCUPIED
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED UNOCCUPIED
+************************************************
+Floor Number : 1
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+************************************************
+***** PRINTING PARKING LOT *****
+Floor Number : 0
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED OCCUPIED
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED OCCUPIED
+************************************************
+Floor Number : 1
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+************************************************
+Request park for truck2; if full, auto-enqueue and notify later
+***** PRINTING PARKING LOT *****
+Floor Number : 0
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED OCCUPIED
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED OCCUPIED
+************************************************
+Floor Number : 1
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED UNOCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+************************************************
+Total free spots now: 6
+=== Unparking vehicles and calculating charges ===
+***** PRINTING PARKING LOT *****
+Floor Number : 0
+OCCUPIED OCCUPIED UNOCCUPIED OCCUPIED OCCUPIED
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED OCCUPIED
+************************************************
+Floor Number : 1
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED UNOCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+************************************************
+Charges for bike1 (license 201): 20
+***** PRINTING PARKING LOT *****
+Floor Number : 0
+OCCUPIED OCCUPIED UNOCCUPIED OCCUPIED OCCUPIED
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED OCCUPIED
+************************************************
+Floor Number : 1
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED UNOCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+************************************************
+Charges for truck1 (license 301): 80
+***** PRINTING PARKING LOT *****
+Floor Number : 0
+UNOCCUPIED UNOCCUPIED UNOCCUPIED OCCUPIED OCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED OCCUPIED
+************************************************
+Floor Number : 1
+OCCUPIED OCCUPIED OCCUPIED OCCUPIED UNOCCUPIED
+UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED UNOCCUPIED
+************************************************
+Charges for car1 (license 101): 40
+Total free spots after unparking: 13
+=== Edge cases ===
+Expected error while unparking non-parked vehicle: Vehicle not parked in this lot.
+Final free spots: 13
+
+=== DEMO SUMMARY ===
+✅ Multi-floor parking system with 2 floors, 10 spots each
+✅ Vehicle parking with different space requirements (Bike: 1, Car: 2, Truck: 4)
+✅ Ticket-based parking system
+✅ Observer pattern for waitlist notifications
+✅ Strategy pattern for charging (FlatRatePerSpotStrategy)
+✅ Proper unparking with charge calculation
+✅ Edge case handling for invalid unparking
+✅ Visual grid representation of parking lot state

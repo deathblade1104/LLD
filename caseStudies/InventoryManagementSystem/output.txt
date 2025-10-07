@@ -1,0 +1,99 @@
+=== INVENTORY MANAGEMENT SYSTEM DEMO OUTPUT ===
+Generated on: $(date)
+Command: java -cp . caseStudies.InventoryManagementSystem.InventoryManagementMain
+
+=== Inventory Management System Demo ===
+50 units of Gaming Laptop (SKU: LAP001) added to Main Warehouse. New quantity: 50
+100 units of Cotton T-Shirt (SKU: CLO001) added to Main Warehouse. New quantity: 100
+200 units of Organic Milk (SKU: GRO001) added to Secondary Warehouse. New quantity: 200
+
+=== Initial Inventory Status ===
+Laptop total across warehouses: 50
+Shirt total across warehouses: 100
+Milk total across warehouses: 200
+
+=== Initial Inventory Check ===
+
+=== Simulating Sales (Removing Stock) ===
+45 units of Gaming Laptop (SKU: LAP001) removed from Main Warehouse. Remaining quantity: 5
+85 units of Cotton T-Shirt (SKU: CLO001) removed from Main Warehouse. Remaining quantity: 15
+160 units of Organic Milk (SKU: GRO001) removed from Secondary Warehouse. Remaining quantity: 40
+
+=== Checking Inventory After Sales ===
+=== OBSERVER NOTIFICATION TRIGGERED ===
+Product: Cotton T-Shirt (SKU: CLO001)
+Current quantity: 15, Threshold: 20
+Notifying 2 observers...
+Notification sent to TechSupplier Inc for low stock of Cotton T-Shirt
+=== END OBSERVER NOTIFICATIONS ===
+
+Bulk Order replenishment: Added 60 units of Cotton T-Shirt. New quantity: 75
+=== OBSERVER NOTIFICATION TRIGGERED ===
+Product: Gaming Laptop (SKU: LAP001)
+Current quantity: 5, Threshold: 10
+Notifying 2 observers...
+WARNING ALERT: Gaming Laptop stock low at 5 units (50.0% of threshold)
+Dashboard notification sent to admin: admin1@company.com - WARNING level alert for Gaming Laptop
+Dashboard notification sent to admin: admin2@company.com - WARNING level alert for Gaming Laptop
+Notification sent to TechSupplier Inc for low stock of Gaming Laptop
+=== END OBSERVER NOTIFICATIONS ===
+
+Bulk Order replenishment: Added 30 units of Gaming Laptop. New quantity: 35
+=== OBSERVER NOTIFICATION TRIGGERED ===
+Product: Organic Milk (SKU: GRO001)
+Current quantity: 40, Threshold: 50
+Notifying 2 observers...
+Notification sent to TechSupplier Inc for low stock of Organic Milk
+=== END OBSERVER NOTIFICATIONS ===
+
+Bulk Order replenishment: Added 150 units of Organic Milk. New quantity: 190
+
+=== Demonstrating Transfer Operations ===
+Warehouses with laptop before transfer: 1
+20 units of Gaming Laptop (SKU: LAP001) added to Secondary Warehouse. New quantity: 20
+Added 20 laptops to LA warehouse for transfer demo
+Attempting to transfer 15 units of LAP001 from Secondary Warehouse to Main Warehouse
+15 units of Gaming Laptop (SKU: LAP001) removed from Secondary Warehouse. Remaining quantity: 5
+15 units of Gaming Laptop (SKU: LAP001) added to Main Warehouse. New quantity: 20
+Transfer completed successfully!
+
+=== Post-Transfer Inventory Status ===
+NYC Warehouse - Laptop quantity: 20
+LA Warehouse - Laptop quantity: 20
+Total laptops across all warehouses: 40
+
+=== Individual Product Check ===
+
+=== Final Inventory Status ===
+Laptop quantity: 20
+Shirt quantity: 75
+Milk quantity: 190
+
+=== Demo Complete ===
+
+=== DEMO SUMMARY ===
+✅ Multi-warehouse inventory management system
+✅ Distributed inventory model (each warehouse maintains independent stock)
+✅ Global inventory visibility across all warehouses
+✅ Observer pattern for low stock notifications (Dashboard + Supplier alerts)
+✅ Strategy pattern for replenishment (BulkOrderReplineshmentStrategy)
+✅ Factory pattern for product creation (SimpleProductFactory)
+✅ Singleton pattern for centralized management (InventoryManager)
+✅ Transfer operations between warehouses
+✅ Automatic stock replenishment when below threshold
+✅ Product hierarchy with category-specific attributes (Electronics, Clothing, Grocery)
+
+=== DESIGN PATTERNS DEMONSTRATED ===
+- Singleton Pattern: InventoryManager ensures single point of control
+- Observer Pattern: DashboardAlertSystem and SupplierNotifier for notifications
+- Strategy Pattern: ReplenishmentStrategy with BulkOrderReplineshmentStrategy
+- Factory Pattern: SimpleProductFactory creates products based on category
+- Template Method: Product hierarchy with common operations
+
+=== KEY FEATURES ===
+- Global inventory queries: getTotalQuantityAcrossWarehouses()
+- Transfer operations: transferProduct() between warehouses
+- Low stock detection and automatic replenishment
+- Multi-observer notification system
+- Category-specific product attributes
+- Atomic transfer operations with validation

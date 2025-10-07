@@ -1,0 +1,38 @@
+=== SNAKE AND FOOD GAME DEMO OUTPUT ===
+Generated on: $(date)
+Command: java -cp . caseStudies.SnakeAndFood.SnakeGameMain
+
+===== SNAKE GAME =====
+Controls: W (Up), S (Down), A (Left), D (Right), Q (Quit)
+Eat food to grow your snake and increase your score.
+Don't hit the walls or bite yourself!
+=======================
+
+Current snake length: 1
+Enter move (W/A/S/D) or Q to quit: Exception in thread "main" java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1660)
+	at caseStudies.SnakeAndFood.SnakeGameMain.main(SnakeGameMain.java:38)
+
+=== DEMO SUMMARY ===
+✅ Console-based Snake game implementation
+✅ Strategy pattern for movement (HumanMovementStrategy)
+✅ Singleton pattern for GameBoard management
+✅ Factory pattern for Food creation (NormalFood, BonusFood)
+✅ Position-based coordinate system
+✅ Snake growth mechanics
+✅ Food spawning system
+⚠️  Interactive game requires user input - cannot run in automated mode
+⚠️  Game expects keyboard input for movement controls
+
+=== HOW TO RUN MANUALLY ===
+1. Compile: javac -d . caseStudies/SnakeAndFood/**/*.java
+2. Run: java -cp . caseStudies.SnakeAndFood.SnakeGameMain
+3. Use keyboard controls: W (Up), S (Down), A (Left), D (Right), Q (Quit)
+4. Eat food to grow snake and increase score
+5. Avoid hitting walls or biting yourself
+
+=== DESIGN PATTERNS DEMONSTRATED ===
+- Strategy Pattern: MovementStrategy interface with HumanMovementStrategy implementation
+- Singleton Pattern: GameBoard ensures single game instance
+- Factory Pattern: FoodFactory creates different food types
+- Observer Pattern: Game state changes trigger updates

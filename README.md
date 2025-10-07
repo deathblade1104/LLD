@@ -6,6 +6,8 @@ This repository contains comprehensive implementations of software design patter
 
 ### Case Studies
 - **[Parking Lot](caseStudies/ParkingLot/README.md)** — Multi-floor parking system with tickets, waitlist notifications (Observer), pluggable pricing strategy, and UML diagrams
+- **[Snake and Food](caseStudies/SnakeAndFood/README.md)** — Console Snake game with Strategy pattern for movement, Singleton game board, and clean domain modeling
+- **[Inventory Management](caseStudies/InventoryManagementSystem/README.md)** — Multi-warehouse inventory system with Observer notifications, Strategy replenishment, and Factory product creation
 
 ### Creational Patterns
 - **[Simple Factory](designPatterns/creational/simpleFactory/README.md)** - Centralized object creation
