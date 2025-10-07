@@ -1,12 +1,10 @@
-package designPatterns.behavioural.observer;
+package designPatterns.behavioural.observer.bookstore;
 
 public class BookCustomer implements ICustomer {
 
   private int observedStockQuantity;
-  private IStore store;
 
   public BookCustomer(IStore store) {
-    this.store = store;
     store.addCustomer(this);
   }
 
@@ -17,5 +15,9 @@ public class BookCustomer implements ICustomer {
       System.out.println(
           "Hello, A book you are interested in is back in stock!");
     }
+  }
+
+  public int getObservedStockQuantity() {
+    return observedStockQuantity;
   }
 }

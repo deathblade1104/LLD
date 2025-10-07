@@ -1,9 +1,9 @@
 package designPatterns.creational.builder.classic;
 
-import designPatterns.creational.builder.enums.Dessert;
-import designPatterns.creational.builder.enums.Drink;
-import designPatterns.creational.builder.enums.Main;
-import designPatterns.creational.builder.enums.Starter;
+import designPatterns.creational.builder.classic.enums.Dessert;
+import designPatterns.creational.builder.classic.enums.Drink;
+import designPatterns.creational.builder.classic.enums.Main;
+import designPatterns.creational.builder.classic.enums.Starter;
 
 public class HealthyMealBuilder extends BaseMealBuilder {
 

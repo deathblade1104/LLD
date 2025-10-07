@@ -1,4 +1,4 @@
-package designPatterns.creational.builder.enums;
+package designPatterns.creational.builder.classic.enums;
 
 public enum Starter {
   SALAD,

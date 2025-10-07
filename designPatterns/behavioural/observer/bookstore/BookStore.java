@@ -1,4 +1,4 @@
-package designPatterns.behavioural.observer;
+package designPatterns.behavioural.observer.bookstore;
 
 import java.util.ArrayList;
 import java.util.List;

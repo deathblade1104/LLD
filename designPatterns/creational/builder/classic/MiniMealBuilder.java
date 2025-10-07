@@ -1,7 +1,7 @@
 package designPatterns.creational.builder.classic;
 
-import designPatterns.creational.builder.enums.Dessert;
-import designPatterns.creational.builder.enums.Main;
+import designPatterns.creational.builder.classic.enums.Dessert;
+import designPatterns.creational.builder.classic.enums.Main;
 
 public class MiniMealBuilder extends BaseMealBuilder {
 
