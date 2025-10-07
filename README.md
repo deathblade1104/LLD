@@ -22,6 +22,7 @@ This repository contains comprehensive implementations of software design patter
 
 ### Behavioral Patterns
 - **[Observer](designPatterns/behavioural/observer/README.md)** - Event-driven communication
+- **[State](designPatterns/behavioural/state/README.md)** - Behavior changes with internal state
 
 ## 🚀 Quick Start
 
