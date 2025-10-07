@@ -1,0 +1,19 @@
+📱 [RiderNotify][Shahbaz]: Driver assigned: Suresh (SEDAN)
+🚗 [DriverNotify][Suresh]: Driver assigned: Suresh (SEDAN)
+📱 [RiderNotify][Shahbaz]: Trip state → DRIVER_EN_ROUTE
+🚗 [DriverNotify][Suresh]: Trip state → DRIVER_EN_ROUTE
+📱 [RiderNotify][Shahbaz]: Driver en route, distance ~1.67 km
+🚗 [DriverNotify][Suresh]: Driver en route, distance ~1.67 km
+📱 [RiderNotify][Shahbaz]: Trip state → STARTED
+🚗 [DriverNotify][Suresh]: Trip state → STARTED
+📱 [RiderNotify][Shahbaz]: Ride started. Estimated distance: 3.55 km
+🚗 [DriverNotify][Suresh]: Ride started. Estimated distance: 3.55 km
+📱 [RiderNotify][Shahbaz]: Ride completed. Actual distance: 3.44 km
+🚗 [DriverNotify][Suresh]: Ride completed. Actual distance: 3.44 km
+📱 [RiderNotify][Shahbaz]: Trip state → COMPLETED
+🚗 [DriverNotify][Suresh]: Trip state → COMPLETED
+📱 [RiderNotify][Shahbaz]: Bill generated: Bill{base=40.0, km=3.4439138939172698, perKm=11.0, surge=1.5, taxes=17.42842426493429, total=114.25300351456924}
+🚗 [DriverNotify][Suresh]: Bill generated: Bill{base=40.0, km=3.4439138939172698, perKm=11.0, surge=1.5, taxes=17.42842426493429, total=114.25300351456924}
+Final Trip Status: COMPLETED
+Assigned Driver: Suresh
+Total Fare: 114.25300351456924
