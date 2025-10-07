@@ -9,6 +9,7 @@ This repository contains comprehensive implementations of software design patter
 - **[Snake and Food](caseStudies/SnakeAndFood/README.md)** — Console Snake game with Strategy pattern for movement, Singleton game board, and clean domain modeling
 - **[Inventory Management](caseStudies/InventoryManagementSystem/README.md)** — Multi-warehouse inventory system with Observer notifications, Strategy replenishment, and Factory product creation
  - **[Vending Machine](caseStudies/VendingMachine/README.md)** — State-driven workflow for product selection, payment, dispensing, and stock handling
+ - **[Document Workflow](caseStudies/DocumentWorkflow/README.md)** — State-driven document lifecycle: Draft → Moderation → Published → Archived
 
 ### Creational Patterns
 - **[Simple Factory](designPatterns/creational/simpleFactory/README.md)** - Centralized object creation
