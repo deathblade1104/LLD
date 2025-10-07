@@ -10,6 +10,8 @@ This repository contains comprehensive implementations of software design patter
 - **[Inventory Management](caseStudies/InventoryManagementSystem/README.md)** — Multi-warehouse inventory system with Observer notifications, Strategy replenishment, and Factory product creation
  - **[Vending Machine](caseStudies/VendingMachine/README.md)** — State-driven workflow for product selection, payment, dispensing, and stock handling
  - **[Document Workflow](caseStudies/DocumentWorkflow/README.md)** — State-driven document lifecycle: Draft → Moderation → Published → Archived
+ - **[Snake and Ladder](caseStudies/SnakeAndLadder/README.md)** — Turn-based board game with State machine, Builder for board setup, Strategy dice, and Observer eventing
+ - **[Ride Hailing System](caseStudies/RideHailingSystem/README.md)** — Trip lifecycle with State pattern, Strategy-based driver matching and billing, Factory for cars, Observer notifications, and Builder for bills
 
 ### Creational Patterns
 - **[Simple Factory](designPatterns/creational/simpleFactory/README.md)** - Centralized object creation
@@ -45,6 +47,10 @@ java -cp . designPatterns.creational.singleton.Main
 
 # Or compile all patterns at once
 find designPatterns -name "*.java" -exec javac -d . {} +
+
+# Run a case study (example: Ride Hailing System)
+javac -d . caseStudies/RideHailingSystem/**/**/*.java
+java -cp . caseStudies.RideHailingSystem.RideHailingSystemMain
 ```
 
 ### Pattern Navigation

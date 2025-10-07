@@ -132,14 +132,14 @@ classDiagram
     -surgeMultiplier: double
     -taxes: double
     -total: double
-    class Builder {
-      +baseFare(v: double) Builder
-      +distanceKm(v: double) Builder
-      +perKm(v: double) Builder
-      +surge(v: double) Builder
-      +taxes(v: double) Builder
-      +build() Bill
-    }
+  }
+  class BillBuilder {
+    +baseFare(v: double) BillBuilder
+    +distanceKm(v: double) BillBuilder
+    +perKm(v: double) BillBuilder
+    +surge(v: double) BillBuilder
+    +taxes(v: double) BillBuilder
+    +build() Bill
   }
 
   class SimpleCarFactory { +createCar(type: CarType, plate: String, model: String) Car }
@@ -162,6 +162,7 @@ classDiagram
   BillingStrategyFactory --> BillingStrategy
   Trip --> Bill
   SimpleCarFactory --> Car
+  BillBuilder --> Bill : builds
 ```
 
 ## State Diagram (Trip Lifecycle)
