@@ -15,6 +15,9 @@ This repository contains comprehensive implementations of software design patter
 - **[Simple Factory](designPatterns/creational/simpleFactory/README.md)** - Centralized object creation
 - **[Factory Method](designPatterns/creational/factory/README.md)** - Delegate creation to subclasses
 - **[Builder](designPatterns/creational/builder/README.md)** - Step-by-step object construction
+  - Classic (Meal) in `builder/classic`
+  - Fluent (Pizza) in `builder/fluent`
+  - Fluent + Factory (Pizza) in `builder/fluentFactory`
 - **[Prototype](designPatterns/creational/prototype/README.md)** - Clone existing objects
 - **[Singleton](designPatterns/creational/singleton/README.md)** - Single instance guarantee
 

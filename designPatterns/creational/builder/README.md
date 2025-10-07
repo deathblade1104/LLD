@@ -15,7 +15,7 @@ The Builder pattern constructs complex objects step by step. It allows you to pr
 - Fluent interface for readable code
 - Director class to orchestrate construction
 
-## UML Diagram
+## UML Diagram (Classic Meal)
 
 ```mermaid
 classDiagram
@@ -120,12 +120,20 @@ public abstract class BaseMealBuilder {
 }
 ```
 
-## Usage Example
+## Usage Examples
 
 ```bash
-# Compile and run
-javac -d . designPatterns/creational/builder/enums/*.java designPatterns/creational/builder/*.java
-java -cp . designPatterns.creational.builder.Main
+# Compile and run classic builder example (Meal)
+javac -d . designPatterns/creational/builder/enums/*.java designPatterns/creational/builder/classic/*.java
+java -cp . designPatterns.creational.builder.classic.Main
+
+# Compile and run fluent builder example (Pizza)
+javac -d . designPatterns/creational/builder/fluent/*.java
+java -cp . designPatterns.creational.builder.fluent.Main
+
+# Compile and run fluent builder + factory example (Pizza)
+javac -d . designPatterns/creational/builder/fluentFactory/*.java
+java -cp . designPatterns.creational.builder.fluentFactory.Main
 ```
 
 **Expected Output:**
@@ -164,7 +172,8 @@ Drink: SODA
 - API response builders
 
 ## Variations
-- **Fluent Builder**: Method chaining for readable code
+- **Fluent Builder**: Method chaining for readable code (see `fluent/` example)
+- **Fluent Builder + Factory**: Builder selection via factory (see `fluentFactory/`)
 - **Step Builder**: Guided construction process
 - **Generic Builder**: Type-safe builder implementations
 - **Director Pattern**: Separate class to orchestrate building
